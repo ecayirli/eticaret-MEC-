@@ -1,0 +1,26 @@
+﻿@using Mec.WebUI.Models;
+@model IEnumerable<ProductModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Şaşkın Bakkal</h1>
+            <hr />
+            <h5>Televizyondan buzdolabına çamaşır makinesinden cep telefonuna kadar aradğınız her şey burada!</h5>
+        </div>
+    </div>
+</div>
+<div class="container pb-5">
+
+    @Html.Partial("_ProductList",Model)
+
+
+</div>
+
+
+
+
+

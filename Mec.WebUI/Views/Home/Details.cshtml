@@ -1,0 +1,76 @@
+﻿@using Mec.WebUI.Entity;
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+    <div id="product-details" class="container pb-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/Upload/@Model.Image" class="img-fluid rounded" alt="@Model.Name">
+            </div>
+            <div class="col-md-6">
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        <h1>@Model.Name</h1>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        @if (Model.IsHome)
+                        {
+                            <span class="badge badge-primary">Stokta</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">Stokta Yok</span>
+                        }
+                        
+                        <span class="product-number">#987654</span>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        @Model.Description
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span class="badge badge-success">41</span>
+                    </div>
+                    <div id="write-review" class="col-md-4">
+                        <a href="#">
+                            Write a review
+                        </a>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        <h4 id="product-price">@Model.Price TL</h4>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+
+                        @using (Html.BeginForm("AddToCart","Cart"))
+                         {
+                            @Html.HiddenFor(x=>x.Id)
+                            <button type="submit" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add To Cart
+                            </button>
+                         }
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
